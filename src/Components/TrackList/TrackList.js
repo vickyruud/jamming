@@ -10,6 +10,7 @@ const TrackList = (props) => {
       trackName={track.name}
       artist={track.artist}
       album={track.album}
+      buttonValue={props.buttonValue}
       
     />
   })

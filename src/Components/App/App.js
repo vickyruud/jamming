@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import './App.css';
 
 function App(props) {
+  //hard coded songs
   const songs = [
     {
       id: 1,
@@ -19,10 +21,15 @@ function App(props) {
     },    
   ]
 
+  //state holds tracks, search results and playlist name
   const [state, setState] = useState({
     searchResults: songs,
+    playlistTracks: songs,
+    playlistName: 'My Songs',
     
   });
+
+ 
 
   return (
 <div>
@@ -31,7 +38,7 @@ function App(props) {
     <SearchBar />
         <div className="App-playlist">
           <SearchResults searchResults = {state.searchResults} />
-          {/* <!-- Add a Playlist component --> */}
+          <Playlist playlistName={state.playlistName} playlistTracks={state.playlistTracks} />
         </div>
   </div>
 </div>
