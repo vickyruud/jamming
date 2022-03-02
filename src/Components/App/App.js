@@ -24,11 +24,22 @@ function App(props) {
   //state holds tracks, search results and playlist name
   const [state, setState] = useState({
     searchResults: songs,
-    playlistTracks: songs,
+    playlistTracks: [],
     playlistName: 'My Songs',
     
   });
 
+  const addTrack = (track) => {
+    if (state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)){
+      return;
+    } else {
+      setState({
+        ...state,
+        playlistTracks: []
+      })
+    }
+    
+  }
  
 
   return (
@@ -37,7 +48,7 @@ function App(props) {
   <div className="App">
     <SearchBar />
         <div className="App-playlist">
-          <SearchResults searchResults = {state.searchResults} />
+          <SearchResults onAdd={addTrack} searchResults = {state.searchResults} />
           <Playlist playlistName={state.playlistName} playlistTracks={state.playlistTracks} />
         </div>
   </div>
