@@ -13,6 +13,8 @@ const TrackList = (props) => {
       album={track.album}
       buttonValue={props.buttonValue}
       onAdd={props.onAdd}
+      removeTrack={props.removeTrack}
+      onRemove={props.onRemove}
     />
   })
   return (

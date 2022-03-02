@@ -29,6 +29,7 @@ function App(props) {
     
   });
 
+  //adds track to playlist
   const addTrack = (track) => {
     let tracks = state.playlistTracks
     if (state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)){
@@ -42,6 +43,16 @@ function App(props) {
     }
     
   }
+
+  //removes track from playlist
+  const removeTrack = (track => {
+    const tracks = state.playlistTracks.filter(song => song.id !== track.id)
+    setState({
+      ...state,
+      playlistTracks: tracks,
+    })
+
+  })
  
 
   return (
@@ -51,7 +62,7 @@ function App(props) {
     <SearchBar />
         <div className="App-playlist">
           <SearchResults onAdd={addTrack} searchResults = {state.searchResults} />
-          <Playlist playlistName={state.playlistName} playlistTracks={state.playlistTracks} />
+          <Playlist playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
         </div>
   </div>
 </div>
