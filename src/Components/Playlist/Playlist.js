@@ -12,7 +12,7 @@ const Playlist = (props) => {
         onRemove={props.onRemove}
         buttonValue="-"
         searchResults={props.playlistTracks} />
-    <button className="Playlist-save">SAVE TO SPOTIFY</button>
+    <button onClick={props.onSave} className="Playlist-save">SAVE TO SPOTIFY</button>
   </div>
   )
 }

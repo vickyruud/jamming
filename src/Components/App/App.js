@@ -62,16 +62,30 @@ function App(props) {
     })
     
   }
+
+  //saves playlist
+  const savePLaylist = () => {
+    if (state.playlistTracks && state.playlistName) {
+     const trackUris = state.playlistTracks.map(track => {
+       return track.uri;
+      }); 
+      console.log(trackUris);
+    }
+  }
+  //search for songs
+  const search = (term) => {
+    console.log(term);
+  }
  
 
   return (
 <div>
   <h1>Ja<span className="highlight">mmm</span>ing</h1>
   <div className="App">
-    <SearchBar />
+    <SearchBar onSearch={search} />
         <div className="App-playlist">
           <SearchResults onAdd={addTrack} searchResults = {state.searchResults} />
-          <Playlist onNameChange={updatePlaylistName} playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
+          <Playlist onSave={savePLaylist} onNameChange={updatePlaylistName} playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
         </div>
   </div>
 </div>
