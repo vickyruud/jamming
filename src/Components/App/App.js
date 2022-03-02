@@ -52,7 +52,16 @@ function App(props) {
       playlistTracks: tracks,
     })
 
-  })
+  });
+
+  //change playlist name
+  const updatePlaylistName = (input) => {
+    setState({
+      ...state,
+      playlistName: input
+    })
+    
+  }
  
 
   return (
@@ -62,7 +71,7 @@ function App(props) {
     <SearchBar />
         <div className="App-playlist">
           <SearchResults onAdd={addTrack} searchResults = {state.searchResults} />
-          <Playlist playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
+          <Playlist onNameChange={updatePlaylistName} playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
         </div>
   </div>
 </div>

@@ -3,9 +3,11 @@ import TrackList from '../TrackList/TrackList'
 import './Playlist.css'
 
 const Playlist = (props) => {
+
+
   return (
   <div className="Playlist">
-      <input readOnly value={props.playlistName}/>
+      <input onChange={(event)=> props.onNameChange(event.target.value)} value={props.playlistName}/>
       <TrackList
         onRemove={props.onRemove}
         buttonValue="-"
