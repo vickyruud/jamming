@@ -30,12 +30,14 @@ function App(props) {
   });
 
   const addTrack = (track) => {
+    let tracks = state.playlistTracks
     if (state.playlistTracks.find((savedTrack) => savedTrack.id === track.id)){
       return;
     } else {
+      tracks.push(track)
       setState({
         ...state,
-        playlistTracks: []
+        playlistTracks: tracks 
       })
     }
     
