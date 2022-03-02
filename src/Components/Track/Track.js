@@ -1,14 +1,14 @@
 import React from 'react'
 import './Track.css'
 
-const Track = () => {
+const Track = (props) => {
   return (
-  <div class="Track">
-    <div class="Track-information">
-      {/* <h3><!-- track name will go here --></h3> */}
-      {/* <p><!-- track artist will go here--> | <!-- track album will go here --></p> */}
+  <div className="Track">
+    <div className="Track-information">
+      <h3>{props.trackName}</h3>
+      <p>{props.artist} | {props.album}</p>
     </div>
-    {/* <button class="Track-action"><!-- + or - will go here --></button> */}
+    {/* <button className="Track-action"><!-- + or - will go here --></button> */}
   </div>
   )
 }

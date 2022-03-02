@@ -1,10 +1,21 @@
 import React from 'react'
 import './TrackList.css'
+import Track from '../Track/Track'
 
-const TrackList = () => {
+const TrackList = (props) => {
+
+  const arrayOfTracks = props.searchResults.map(track => {
+    return <Track
+      key={track.id}
+      trackName={track.name}
+      artist={track.artist}
+      album={track.album}
+      
+    />
+  })
   return (
-  <div class="TrackList">
-    {/* <!-- You will add a map method that renders a set of Track components  --> */}
+  <div className="TrackList">
+    {arrayOfTracks}
   </div>
   )
 }
