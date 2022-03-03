@@ -3,27 +3,28 @@ import Playlist from '../Playlist/Playlist';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import './App.css';
+import Spotify from '../../util/Spotify';
 
 function App(props) {
   //hard coded songs
-  const songs = [
-    {
-      id: 1,
-      name: "Square Hammer",
-      artist: "Ghost",
-      album: "Popestar"
-    },
-    {
-      id: 2,
-      name: "I want it that way",
-      artist: "Backstreet Boys",
-      album: "Millenium"
-    },    
-  ]
+  // const songs = [
+  //   {
+  //     id: 1,
+  //     name: "Square Hammer",
+  //     artist: "Ghost",
+  //     album: "Popestar"
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "I want it that way",
+  //     artist: "Backstreet Boys",
+  //     album: "Millenium"
+  //   },    
+  // ]
 
   //state holds tracks, search results and playlist name
   const [state, setState] = useState({
-    searchResults: songs,
+    searchResults: [],
     playlistTracks: [],
     playlistName: 'My Songs',
     
@@ -74,7 +75,12 @@ function App(props) {
   }
   //search for songs
   const search = (term) => {
-    console.log(term);
+    Spotify.search(term).then(results => {
+      setState({
+        ...state,
+        searchResults: results,
+      })
+    })
   }
  
 
