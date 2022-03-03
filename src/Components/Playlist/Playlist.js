@@ -2,6 +2,7 @@ import React from 'react'
 import TrackList from '../TrackList/TrackList'
 import './Playlist.css'
 
+
 const Playlist = (props) => {
 
 
@@ -9,6 +10,7 @@ const Playlist = (props) => {
   <div className="Playlist">
       <input onChange={(event)=> props.onNameChange(event.target.value)} value={props.playlistName}/>
       <TrackList
+        draggable={Draggable}
         onRemove={props.onRemove}
         buttonValue="-"
         searchResults={props.playlistTracks} />

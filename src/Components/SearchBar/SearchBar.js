@@ -12,12 +12,6 @@ const SearchBar = (props) => {
     props.onSearch(term);
   }
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter' && event.target.value) {
-      submitSearch(searchTerm);
-      setSearchTerm('');
-    }
-  }
   return (
   <div className="SearchBar">
     <input  onChange={(event) => handleTermChange(event)} placeholder="Enter A Song, Album, or Artist" />

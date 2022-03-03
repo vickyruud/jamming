@@ -12,7 +12,7 @@ function App(props) {
   const [state, setState] = useState({
     searchResults: [],
     playlistTracks: [],
-    playlistName: '',
+    playlistName: 'Enter a Playlist Name',
     searchTerm : ''
     
   });
@@ -62,7 +62,7 @@ function App(props) {
         .then(() => {
           setState({
             ...state,
-            playlistName: '',
+            playlistName: 'Enter a Playlist Name',
             playlistTracks: []
           });
           

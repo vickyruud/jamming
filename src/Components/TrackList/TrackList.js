@@ -4,7 +4,9 @@ import Track from '../Track/Track'
 
 const TrackList = (props) => {
 
-  const arrayOfTracks = props.searchResults.map(track => {
+  const arrayOfTracks =
+    
+    props.searchResults.map(track => {
     return <Track
       trackObj = {track}
       key={track.id}
@@ -18,8 +20,8 @@ const TrackList = (props) => {
     />
   })
   return (
-  <div className="TrackList">
-    {arrayOfTracks}
+    <div className="TrackList">
+      {arrayOfTracks}
   </div>
   )
 }

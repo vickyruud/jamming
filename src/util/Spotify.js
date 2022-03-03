@@ -1,7 +1,7 @@
 
 const clientId = '47f8572a626845fdbe9ba575cf8873c4'
-const redirectUri = "http://jamming-vickyruud.surge.sh";
-// const redirectUri = "http://localhost:3000/";
+// const redirectUri = "http://jamming-vickyruud.surge.sh";
+const redirectUri = "http://localhost:3000/";
  
 let accessToken = '';
 
