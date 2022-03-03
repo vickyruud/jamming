@@ -6,27 +6,13 @@ import './App.css';
 import Spotify from '../../util/Spotify';
 
 function App(props) {
-  //hard coded songs
-  // const songs = [
-  //   {
-  //     id: 1,
-  //     name: "Square Hammer",
-  //     artist: "Ghost",
-  //     album: "Popestar"
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "I want it that way",
-  //     artist: "Backstreet Boys",
-  //     album: "Millenium"
-  //   },    
-  // ]
+  
 
   //state holds tracks, search results and playlist name
   const [state, setState] = useState({
     searchResults: [],
     playlistTracks: [],
-    playlistName: 'My Songs',
+    playlistName: '',
     searchTerm : ''
     
   });
@@ -67,11 +53,20 @@ function App(props) {
 
   //saves playlist
   const savePLaylist = () => {
-    if (state.playlistTracks && state.playlistName) {
-     const trackUris = state.playlistTracks.map(track => {
-       return track.uri;
-      }); 
-      console.log(trackUris);
+    let tracks = state.playlistTracks;
+    if (tracks.length && state.playlistName) {
+     let trackUris = tracks.map(trackIndex => {
+       return trackIndex.uri;
+     });
+      Spotify.savePlaylist(state.playlistName, trackUris)
+        .then(() => {
+          setState({
+            ...state,
+            playlistName: '',
+            playlistTracks: []
+          });
+          
+      })
     }
   }
   //search for songs
