@@ -48,6 +48,11 @@ const Spotify = {
           }))
         })
   },
+  savePlaylist(playlist, trackUris) {
+    if (!playlist || !trackUris) {
+      return null
+    }
+  }
 
 
 }
