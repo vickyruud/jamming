@@ -11,10 +11,10 @@ const Spotify = {
     if (accessToken) {
       return accessToken;
     }
-
+    //grab access tokens 
     const newAccessToken = window.location.href.match(/access_token=([^&]*)/);
     const newExpiresIn = window.location.href.match(/expires_in=([^&]*)/);
-    if (newAccessToken && newExpiresIn) {
+    if (newAccessToken && newExpiresIn) { //if access token and expiry exist proceed
       accessToken = newAccessToken[1];
       const expiresIn = Number(newExpiresIn[1]);
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
@@ -25,6 +25,8 @@ const Spotify = {
       window.location = accessUrl;
     }
   },
+
+  //handles search and displays results 
   search(term) {
     const accessToken = Spotify.getAccessToken();
     const fetchUrl = `https://api.spotify.com/v1/search?type=track&q=${term}` 
@@ -49,6 +51,8 @@ const Spotify = {
           }))
         })
   },
+
+  //saves playlist to spotify
   savePlaylist(playlistName, trackURIs) {
     if (playlistName && trackURIs.length) {
       const accessToken = Spotify.getAccessToken();
