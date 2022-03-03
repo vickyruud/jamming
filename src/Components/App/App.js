@@ -27,6 +27,7 @@ function App(props) {
     searchResults: [],
     playlistTracks: [],
     playlistName: 'My Songs',
+    searchTerm : ''
     
   });
 
@@ -88,7 +89,7 @@ function App(props) {
 <div>
   <h1>Ja<span className="highlight">mmm</span>ing</h1>
   <div className="App">
-    <SearchBar onSearch={search} />
+        <SearchBar setState={setState}searchTerm={state.searchTerm }onSearch={search} />
         <div className="App-playlist">
           <SearchResults onAdd={addTrack} searchResults = {state.searchResults} />
           <Playlist onSave={savePLaylist} onNameChange={updatePlaylistName} playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
