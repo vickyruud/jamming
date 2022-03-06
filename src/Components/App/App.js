@@ -13,7 +13,8 @@ function App(props) {
     searchResults: [],
     playlistTracks: [],
     playlistName: 'Enter a Playlist Name',
-    searchTerm : ''
+    searchTerm: '',
+    collapse: true
     
   });
 
@@ -60,15 +61,24 @@ function App(props) {
      });
       Spotify.savePlaylist(state.playlistName, trackUris)
         .then(() => {
+          handleNotification();
           setState({
             ...state,
             playlistName: 'Enter a Playlist Name',
-            playlistTracks: []
+            playlistTracks: [],
           });
-          
       })
     }
   }
+
+  const handleNotification = () => {
+    setState({
+      ...state,
+      collapse: !state.collapse
+    });
+    console.log(state);
+  }
+
   //search for songs
   const search = (term) => {
     Spotify.search(term).then(results => {
@@ -87,7 +97,7 @@ function App(props) {
         <SearchBar setState={setState}searchTerm={state.searchTerm }onSearch={search} />
         <div className="App-playlist">
           <SearchResults onAdd={addTrack} searchResults = {state.searchResults} />
-          <Playlist onSave={savePLaylist} onNameChange={updatePlaylistName} playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
+          <Playlist collapse={state.collapse} onSave={savePLaylist} onNameChange={updatePlaylistName} playlistName={state.playlistName} playlistTracks={state.playlistTracks} onRemove= {removeTrack} />
         </div>
   </div>
 </div>

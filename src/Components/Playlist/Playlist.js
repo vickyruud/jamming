@@ -7,10 +7,9 @@ const Playlist = (props) => {
 
 
   return (
-  <div className="Playlist">
+    <div className="Playlist">
       <input onChange={(event)=> props.onNameChange(event.target.value)} value={props.playlistName}/>
       <TrackList
-        draggable={Draggable}
         onRemove={props.onRemove}
         buttonValue="-"
         searchResults={props.playlistTracks} />
