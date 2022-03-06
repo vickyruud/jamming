@@ -15,3 +15,7 @@ Jamming is a single-page application (SPA) that allows users to search for songs
 - The playlist can then be saved to their Spotify account via the Spotify api.
 
 ## Screenshots
+
+### Jamming in action
+
+!["Jamming if"]()
