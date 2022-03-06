@@ -1,6 +1,6 @@
 # Jamming
 
-Jamming is a single-page application (SPA) that allows users to search for songs on Spotify and create a playlist. The playlist can then be saved on spotify. The project was built using ReactJS. The data is retrieved via the Spotify api.
+Jamming is a single-page application (SPA) that allows users to search for songs on Spotify and create a playlist. The playlist can then be saved on spotify. The project was built using ReactJS. The data is retrieved via the Spotify api. You will be asked by Spotify to allow Jamming to access your profile data, you will have to accept it for the application to work.
 
 ## Setup
 
