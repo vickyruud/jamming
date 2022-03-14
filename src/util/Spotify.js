@@ -52,7 +52,7 @@ const Spotify = {
         })
   },
 
-  //saves playlist to spotify after obtaining user id
+  //saves playlist to spotify after to the user's playlists database
   savePlaylist(playlistName, trackURIs) {
     if (playlistName && trackURIs.length) {
       const accessToken = Spotify.getAccessToken();

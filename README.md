@@ -16,4 +16,4 @@ Jamming is a single-page application (SPA) that allows users to search for songs
 
 ## Jamming in action
 
-!["Jamming gif"](https://github.com/vickyruud/jamming/blob/main/public/Jamming-in-action.gif)
+  !["Jamming gif"](https://github.com/vickyruud/jamming/blob/main/public/Jamming-in-action.gif)
